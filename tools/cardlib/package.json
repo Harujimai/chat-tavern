@@ -1,0 +1,17 @@
+{
+  "name": "chat-tavern-cardlib-build",
+  "version": "0.1.4",
+  "private": true,
+  "description": "Build the bundled PNG character-card reader used by dsh-studio.js",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild entry.js --bundle --minify --format=iife --target=es2019 --outfile=../../static/js/dsh-cardlib.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "png-chunk-text": "^1.0.0",
+    "png-chunks-encode": "^1.0.0",
+    "png-chunks-extract": "^1.0.0"
+  }
+}

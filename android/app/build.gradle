@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.chattavern.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.chattavern.app"
+        minSdk 24
+        targetSdk 34
+        versionCode 30101
+        versionName "0.1.4"
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+        }
+        debug {
+            applicationIdSuffix ".debug"
+        }
+    }
+
+    // Shell-side extension scripts live in their own dir and get merged into the
+    // asset root at build time, so vendor assets/ stays byte-identical.
+    sourceSets {
+        main {
+            assets.srcDirs += 'src/main/assets_ext'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/*.kotlin_module']
+        }
+    }
+
+    androidResources {
+        // Keep font/binary payloads untouched; aapt recompression would alter bytes.
+        noCompress += ['woff', 'woff2', 'ttf']
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.11.0'
+}

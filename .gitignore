@@ -1,0 +1,29 @@
+# dependencies
+node_modules/
+
+# build outputs
+build/
+.gradle/
+app/build/
+android/**/build/
+*.iml
+*.apk
+*.aab
+
+# signing and local configuration
+*.jks
+*.keystore
+keystore/
+local.properties
+
+# temporary files
+tmp-*/
+tmp-scan/
+shots/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
